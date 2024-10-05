@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All files</title>
+</head>
+<body>
+<h1>All Files</h1>
+<table>
+    <thead>
+    <tr>
+        <th>File Name</th>
+        <th>Description</th>
+        <th>Uploaded At</th>
+        <th>Keep Indefinitely</th>
+        <th>Download</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="file : ${files}">
+        <td th:text="${file.name}"></td>
+        <td th:text="${file.description}"></td>
+        <td th:text="${file.uploadDate}"></td>
+        <td th:text="${file.keepIndefinitely} ? 'Yes' : 'No'"></td>
+        <td>
+            <a th:href="@{/file/download/{id}(id=${file.id})}">Download</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+</head>
+<body>
+<h1>Upload a File</h1>
+<form enctype="multipart/form-data" method="post" th:action="@{/file/upload}">
+    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+    <div>
+        <label for="file">Select a file:</label>
+        <input id="file" name="file" required type="file"/>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input id="description" name="description" type="text"/>
+    </div>
+    <div>
+        <label for="keepIndefinitely">Keep indefinitely:</label>
+        <input id="keepIndefinitely" name="keepIndefinitely" type="checkbox"/>
+    </div>
+    <div>
+        <button type="submit">Upload</button>
+    </div>
+</form>
+</body>
+</html>
